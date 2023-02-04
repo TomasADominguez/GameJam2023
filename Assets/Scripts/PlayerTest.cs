@@ -10,11 +10,14 @@ public class PlayerTest : MonoBehaviour
     RamaTrigger ramaTrigger;
 
     public Transform objetoEnManos;
-    Manos manos;
+    public Manos manos;
+
+    SonidoControl sonidoControl;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        sonidoControl = FindObjectOfType<SonidoControl>();
     }
 
     // Update is called once per frame
@@ -50,7 +53,13 @@ public class PlayerTest : MonoBehaviour
             {
                 Debug.Log("Escuchando musica ramaA...");
 
-                if (ramaTrigger.tengoHijo == false)
+                if (sonidoControl.audioSource.clip != sonidoControl.cancion1)
+                {
+                    sonidoControl.TocarCancion1();
+                }
+                sonidoControl.Volumen();
+
+                if (ramaTrigger.tengoHijo == false && manos.agarrando)
                 {
                     Drop(manos.hijo, collider.transform);
                 }
@@ -60,7 +69,13 @@ public class PlayerTest : MonoBehaviour
             {
                 Debug.Log("Escuchando musica ramaB...");
 
-                if (ramaTrigger.tengoHijo == false)
+                if (sonidoControl.audioSource.clip != sonidoControl.cancion2)
+                {
+                    sonidoControl.TocarCancion2();
+                }
+                sonidoControl.Volumen();
+
+                if (ramaTrigger.tengoHijo == false && manos.agarrando)
                 {
                     Drop(manos.hijo, collider.transform);
                 }
@@ -69,8 +84,14 @@ public class PlayerTest : MonoBehaviour
             if (ramaTrigger.ramaC)
             {
                 Debug.Log("Escuchando musica ramaC...");
-                
-                if (ramaTrigger.tengoHijo == false)
+
+                if (sonidoControl.audioSource.clip != sonidoControl.cancion3)
+                {
+                    sonidoControl.TocarCancion3();
+                }
+                sonidoControl.Volumen();
+
+                if (ramaTrigger.tengoHijo == false && manos.agarrando)
                 {
                     Drop(manos.hijo, collider.transform);
                 }
@@ -96,16 +117,19 @@ public class PlayerTest : MonoBehaviour
             if (ramaTrigger.ramaA)
             {
                 Debug.Log("Ya no se escucha...");
+                sonidoControl.Volumen();
             }
 
             if (ramaTrigger.ramaB)
             {
                 Debug.Log("Ya no se escucha...");
+                sonidoControl.Volumen();
             }
 
             if (ramaTrigger.ramaC)
             {
                 Debug.Log("Ya no se escucha...");
+                sonidoControl.Volumen();
             }
         }
     }

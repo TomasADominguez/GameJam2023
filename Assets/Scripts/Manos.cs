@@ -13,6 +13,8 @@ public class Manos : MonoBehaviour
         {
             agarrando = true;
             hijo = GetComponentInChildren<Pickable>().gameObject;
+
+            hijo.GetComponent<Collider>().enabled = false;
         }
         else
         {
