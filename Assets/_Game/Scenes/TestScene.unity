@@ -632,5 +632,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 15
   inputSmoothSpeed: 0.2
-  carryingObjectModifier: 0.25
+  carryingObjectModifier: 0.5
   isPlayerCarryingObject: 0
