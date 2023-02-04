@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class CharacterMovement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed, inputSmoothSpeed, carryingObjectModifier;
-    [SerializeField] private bool isPlayerCarryingObject;
+    [SerializeField] public bool isPlayerCarryingObject;
 
     private PlayerInput playerInput;
     private CharacterController characterController;
@@ -48,6 +48,20 @@ public class CharacterMovement : MonoBehaviour
         {
             rb.AddForce(new Vector3(currentInputVector.x, currentInputVector.y, 0f) * movementSpeed);
             playerAni.SetFloat("CarryingObject", 0f);
+        }
+
+        if (rb.velocity.x > 0)
+        {
+            transform.rotation = Quaternion.Euler(0f, 90f, 0f);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0f, -90f, 0f);
+        }
+
+        if (rb.velocity.y > 0)
+        {
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
     }
 }
