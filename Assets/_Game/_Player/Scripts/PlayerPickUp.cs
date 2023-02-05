@@ -40,9 +40,10 @@ public class PlayerPickUp : MonoBehaviour
                 StartCoroutine(Drop(manos.child, other.transform));
                 other.GetComponent<CheckRightObject>().PlayParticles();
             }
-            else if (characterMovement.isPlayerCarryingObject && 
+            else if (!characterMovement.isPlayerCarryingObject && 
                     other.GetComponent<CheckRightObject>().id != GetComponentInChildren<Pickable>().id)
             {
+                if (other.GetComponentInChildren<Pickable>().gameObject == null) return;
                 StartCoroutine(PickUp(other.GetComponentInChildren<Pickable>().gameObject));
             }
         }
