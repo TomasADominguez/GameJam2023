@@ -115,8 +115,12 @@ public class PlayerTest : MonoBehaviour
 
         if (collider.gameObject.TryGetComponent<SonidoPickUp>(out sonidoPickUp))
         {
-            Drop(manos.hijo, collider.transform);
-            dropped = true;
+            if (manos.agarrando)
+            {
+                Drop(manos.hijo, collider.transform);
+                dropped = true;
+            }
+            
         }
     }
 

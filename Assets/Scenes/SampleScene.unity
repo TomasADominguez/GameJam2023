@@ -445,7 +445,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 732057114562065042, guid: 0c1da50d52809b44c981c235314455b3,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 49b0d5c1103f0b44f98999ac2a9b0cc8, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -538,7 +538,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112867620}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalPosition: {x: 6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -557,8 +557,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 103a688bfc0ffb54bbd7c8ace52af3e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mx: {fileID: 112867621}
+  aSource: {fileID: 112867621}
+  mx: {fileID: 24100000, guid: 0c1da50d52809b44c981c235314455b3, type: 2}
   snap: {fileID: -2536302497494244128, guid: 0c1da50d52809b44c981c235314455b3, type: 2}
+  volume: Volume Mx3
+  mxVolume: 0
   player: {fileID: 1447167403}
 --- !u!135 &112867625
 SphereCollider:
@@ -571,7 +574,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.49
+  m_Radius: 0.8
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &126099743
 GameObject:
@@ -2665,7 +2668,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 507362976393966189, guid: 0c1da50d52809b44c981c235314455b3,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 7b85a57384c795e4c92249532102f8e2, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -2777,8 +2780,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 103a688bfc0ffb54bbd7c8ace52af3e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mx: {fileID: 719957223}
+  aSource: {fileID: 719957223}
+  mx: {fileID: 24100000, guid: 0c1da50d52809b44c981c235314455b3, type: 2}
   snap: {fileID: -4004553783266900795, guid: 0c1da50d52809b44c981c235314455b3, type: 2}
+  volume: Volume Mx2
+  mxVolume: 0
   player: {fileID: 1447167403}
 --- !u!135 &719957227
 SphereCollider:
@@ -2791,7 +2797,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.49
+  m_Radius: 0.8
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &720530413
 GameObject:
@@ -3444,7 +3450,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008094823}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9, z: 0}
+  m_LocalPosition: {x: 0, y: 10.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6860,7 +6866,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1967709108}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: 0, z: 0}
+  m_LocalPosition: {x: -6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6879,7 +6885,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -8983375096237501850, guid: 0c1da50d52809b44c981c235314455b3,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 0d73a4f502ef38e4684d611ef1c8a075, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -6976,8 +6982,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 103a688bfc0ffb54bbd7c8ace52af3e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mx: {fileID: 1967709110}
+  aSource: {fileID: 1967709110}
+  mx: {fileID: 24100000, guid: 0c1da50d52809b44c981c235314455b3, type: 2}
   snap: {fileID: -4725439362165374410, guid: 0c1da50d52809b44c981c235314455b3, type: 2}
+  volume: Volume Mx1
+  mxVolume: 0
   player: {fileID: 1447167403}
 --- !u!135 &1967709113
 SphereCollider:
@@ -6990,7 +6999,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.49
+  m_Radius: 0.8
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1970377103
 GameObject:
