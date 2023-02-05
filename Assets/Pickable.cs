@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Pickable : MonoBehaviour
 {
-    
+    [SerializeField] public int id;
 }

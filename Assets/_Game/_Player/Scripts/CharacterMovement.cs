@@ -63,5 +63,14 @@ public class CharacterMovement : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
+        //else
+        //{
+        //    transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        //}
+
+        if (inputVector == Vector2.zero)
+        {
+            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
     }
 }

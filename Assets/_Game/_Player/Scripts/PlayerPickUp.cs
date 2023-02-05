@@ -30,11 +30,18 @@ public class PlayerPickUp : MonoBehaviour
 
         if (other.CompareTag("Goal"))
         {
-            if (characterMovement.isPlayerCarryingObject)
+            if (GetComponentInChildren<Pickable>() == null)
+            {
+                return;
+            }
+            if (characterMovement.isPlayerCarryingObject && 
+                    other.GetComponent<CheckRightObject>().id == GetComponentInChildren<Pickable>().id)
             {
                 StartCoroutine(Drop(manos.child, other.transform));
+                other.GetComponent<CheckRightObject>().PlayParticles();
             }
-            else
+            else if (characterMovement.isPlayerCarryingObject && 
+                    other.GetComponent<CheckRightObject>().id != GetComponentInChildren<Pickable>().id)
             {
                 StartCoroutine(PickUp(other.GetComponentInChildren<Pickable>().gameObject));
             }
