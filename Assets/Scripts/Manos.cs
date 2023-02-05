@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class Manos : MonoBehaviour
 {
-    public bool agarrando;
-    public GameObject hijo;
+    public GameObject child;
 
     void Update()
     {
         if (this.gameObject.transform.childCount >= 1)
         {
-            agarrando = true;
-            hijo = GetComponentInChildren<Pickable>().gameObject;
-        }
-        else
-        {
-            agarrando = false;
+            child = GetComponentInChildren<Pickable>().gameObject;
+            child.GetComponent<Collider>().enabled = false;
         }
     }
 }

@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ab71726ebbfd9a4e9ac4441622215ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hands: {fileID: 837202368618200750}
+  hands: {fileID: 6144431847465746971}
 --- !u!1 &2376383828863377905
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +501,8 @@ Transform:
   m_LocalPosition: {x: -0, y: 30.68165, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6144431847465746971}
   m_Father: {fileID: 3582795186642744526}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -805,6 +806,51 @@ Transform:
   m_Father: {fileID: 181364174525653346}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7364627120793116168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6144431847465746971}
+  - component: {fileID: 7581518372356200632}
+  m_Layer: 0
+  m_Name: Hands
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6144431847465746971
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7364627120793116168}
+  m_LocalRotation: {x: 0.7245668, y: 0.06795886, z: 0.6412115, w: -0.24337699}
+  m_LocalPosition: {x: -39.8, y: 14, z: -4.8}
+  m_LocalScale: {x: 100, y: 100, z: 99.99998}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 837202368618200750}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7581518372356200632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7364627120793116168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a803d821c6d098b4c90624f36cd70a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  child: {fileID: 0}
 --- !u!1 &7474220073241643509
 GameObject:
   m_ObjectHideFlags: 0

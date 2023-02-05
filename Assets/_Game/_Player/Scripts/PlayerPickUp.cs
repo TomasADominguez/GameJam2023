@@ -9,12 +9,10 @@ public class PlayerPickUp : MonoBehaviour
     private CharacterMovement characterMovement;
     private Manos manos;
 
-    void PickUp(GameObject objeto)
+    private void Awake()
     {
-        objeto.transform.position = hands.position;
-        objeto.transform.rotation = hands.rotation;
-
-        objeto.transform.SetParent(hands);
+        characterMovement = GetComponent<CharacterMovement>();
+        manos = GetComponentInChildren<Manos>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,12 +21,55 @@ public class PlayerPickUp : MonoBehaviour
         {
             if (hands.TryGetComponent<Manos>(out manos))
             {
-                if (manos.agarrando == false)
+                if (!characterMovement.isPlayerCarryingObject)
                 {
-                    PickUp(GetComponent<Collider>().gameObject);
-                    characterMovement.isPlayerCarryingObject = true;
+                    StartCoroutine(PickUp(other.gameObject));
                 }
             }
         }
+
+        if (other.CompareTag("Goal"))
+        {
+            if (characterMovement.isPlayerCarryingObject)
+            {
+                StartCoroutine(Drop(manos.child, other.transform));
+            }
+            else
+            {
+                StartCoroutine(PickUp(other.GetComponentInChildren<Pickable>().gameObject));
+            }
+        }
+    }
+
+    IEnumerator PickUp(GameObject pickedUpObject)
+    {
+        LeanTween.scale(pickedUpObject, Vector3.zero, .3f);
+
+        yield return new WaitForSeconds(.5f);
+
+        pickedUpObject.transform.position = hands.position;
+        pickedUpObject.transform.rotation = hands.rotation;
+
+        pickedUpObject.transform.SetParent(hands);
+
+        LeanTween.scale(pickedUpObject, Vector3.one, .3f);
+
+        characterMovement.isPlayerCarryingObject = true;
+    }
+
+    IEnumerator Drop(GameObject pickedUpObject, Transform newParent)
+    {
+        LeanTween.scale(pickedUpObject, Vector3.zero, .3f);
+
+        yield return new WaitForSeconds(.5f);
+
+        pickedUpObject.transform.position = newParent.transform.position;
+        pickedUpObject.transform.rotation = newParent.transform.rotation;
+
+        pickedUpObject.transform.SetParent(newParent);
+
+        LeanTween.scale(pickedUpObject, Vector3.one, .3f);
+
+        characterMovement.isPlayerCarryingObject = false;
     }
 }
