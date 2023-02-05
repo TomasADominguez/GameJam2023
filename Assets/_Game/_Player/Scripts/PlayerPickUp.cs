@@ -9,10 +9,15 @@ public class PlayerPickUp : MonoBehaviour
     private CharacterMovement characterMovement;
     private Manos manos;
 
+    public AudioSource aSourceIncorrecto;
+
+    public Pickable pickable;
+
     private void Awake()
     {
         characterMovement = GetComponent<CharacterMovement>();
         manos = GetComponentInChildren<Manos>();
+        //pickable = GetComponentInChildren<Pickable>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -39,12 +44,22 @@ public class PlayerPickUp : MonoBehaviour
             {
                 StartCoroutine(Drop(manos.child, other.transform));
                 other.GetComponent<CheckRightObject>().PlayParticles();
+                other.GetComponent<SonidoPickUp>().Transicionar();
+                other.GetComponent<SonidoPickUp>().ActivarSonido();
             }
-            else if (characterMovement.isPlayerCarryingObject && 
+            else if (!characterMovement.isPlayerCarryingObject && 
                     other.GetComponent<CheckRightObject>().id != GetComponentInChildren<Pickable>().id)
             {
+                if(other.GetComponentInChildren<Pickable>().gameObject == null) return;
                 StartCoroutine(PickUp(other.GetComponentInChildren<Pickable>().gameObject));
             }
+
+            else if (characterMovement.isPlayerCarryingObject && 
+                    other.GetComponent<CheckRightObject>().id != GetComponentInChildren<Pickable>().id)
+                    {
+                        aSourceIncorrecto.Play();
+                        GetComponentInChildren<Pickable>().Volver();
+                    }
         }
     }
 
