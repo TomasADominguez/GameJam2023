@@ -46,6 +46,12 @@ public class PlayerPickUp : MonoBehaviour
                 if (other.GetComponentInChildren<Pickable>().gameObject == null) return;
                 StartCoroutine(PickUp(other.GetComponentInChildren<Pickable>().gameObject));
             }
+            else if (characterMovement.isPlayerCarryingObject &&
+                    other.GetComponent<CheckRightObject>().id != GetComponentInChildren<Pickable>().id)
+            {
+                if (other.GetComponentInChildren<Pickable>().gameObject == null) return;
+                StartCoroutine(PickUp(other.GetComponentInChildren<Pickable>().gameObject));
+            }
         }
     }
 
@@ -76,7 +82,7 @@ public class PlayerPickUp : MonoBehaviour
 
         pickedUpObject.transform.SetParent(newParent);
 
-        LeanTween.scale(pickedUpObject, Vector3.one, .3f);
+        LeanTween.scale(pickedUpObject, Vector3.one * 2, .3f);
 
         characterMovement.isPlayerCarryingObject = false;
     }

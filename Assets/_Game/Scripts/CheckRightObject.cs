@@ -7,6 +7,8 @@ public class CheckRightObject : MonoBehaviour
     [SerializeField] public int id;
     [SerializeField] private ParticleSystem stars;
 
+    public bool isCorrectObjectPlaced;
+
     public void PlayParticles()
     {
         if (stars == null)
@@ -14,6 +16,7 @@ public class CheckRightObject : MonoBehaviour
             return;
         }
         stars.Play();
+        isCorrectObjectPlaced = true;
     }
 
 }
