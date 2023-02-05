@@ -5,9 +5,10 @@ using UnityEngine;
 public class SonidoControl : MonoBehaviour
 {
     public AudioSource audioSource;
-    public AudioClip cancion1;
-    public AudioClip cancion2;
-    public AudioClip cancion3;
+
+    public AudioClip backgroundMusic1;
+    public AudioClip backgroundMusic2;
+    public AudioClip backgroundMusic3;
 
     void Start()
     {
@@ -23,17 +24,17 @@ public class SonidoControl : MonoBehaviour
 
     public void TocarCancion1()
     {
-        TocarCancion(cancion1);
+        TocarCancion(backgroundMusic1);
     }
 
     public void TocarCancion2()
     {
-        TocarCancion(cancion2);
+        TocarCancion(backgroundMusic2);
     }
 
     public void TocarCancion3()
     {
-        TocarCancion(cancion3);
+        TocarCancion(backgroundMusic3);
     }
 
     public void PararCancion()
