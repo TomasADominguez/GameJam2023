@@ -42,7 +42,6 @@ public class CharacterMovement : MonoBehaviour
         {
             rb.AddForce(new Vector3(currentInputVector.x, currentInputVector.y, 0f) * (movementSpeed * carryingObjectModifier));
             playerAni.SetFloat("CarryingObject", 1f);
-            
         }
         else
         {
